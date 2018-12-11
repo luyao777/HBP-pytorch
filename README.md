@@ -1,5 +1,5 @@
 # HBP-Pytorch
-Hierarchical Bilinear Pooling for Fine-Grained Visual Recognition reimplement in Pytorch.
+A third-party reimplementation of 'Hierarchical Bilinear Pooling for Fine-Grained Visual Recognition' in Pytorch.
 
 The related paper is as follows:
     
