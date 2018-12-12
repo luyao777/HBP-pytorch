@@ -9,4 +9,6 @@ The related paper is as follows:
 
 Official Caffe implementation of Hierarchical Bilinear Pooling for Fine-Grained Visual Recognition is [HERE](https://github.com/ChaojianYu/Hierarchical-Bilinear-Pooling)
 
-The rest part will be uploaded later.
+The main code is uploaded.
+
+The README part will be updated later.
