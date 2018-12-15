@@ -1,0 +1,205 @@
+Prepare the network and data.
+DataParallel(
+  (module): BCNN(
+    (features): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+      (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): ReLU(inplace)
+      (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (6): ReLU(inplace)
+      (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (8): ReLU(inplace)
+      (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (11): ReLU(inplace)
+      (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (13): ReLU(inplace)
+      (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (15): ReLU(inplace)
+      (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (18): ReLU(inplace)
+      (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (20): ReLU(inplace)
+      (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (22): ReLU(inplace)
+      (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (25): ReLU(inplace)
+      (26): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (27): ReLU(inplace)
+      (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (29): ReLU(inplace)
+      (30): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (features_conv5_1): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+      (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): ReLU(inplace)
+      (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (6): ReLU(inplace)
+      (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (8): ReLU(inplace)
+      (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (11): ReLU(inplace)
+      (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (13): ReLU(inplace)
+      (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (15): ReLU(inplace)
+      (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (18): ReLU(inplace)
+      (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (20): ReLU(inplace)
+      (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (22): ReLU(inplace)
+      (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (25): ReLU(inplace)
+    )
+    (features_conv5_2): Sequential(
+      (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+    )
+    (features_conv5_3): Sequential(
+      (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+    )
+    (bilinear_proj): Sequential(
+      (0): Conv2d(512, 8192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): BatchNorm2d(8192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU(inplace)
+    )
+    (fc): Linear(in_features=24576, out_features=200, bias=True)
+  )
+)
+Files already downloaded and verified.
+Files already downloaded and verified.
+Training.
+Epoch	Train loss	Train acc	Test acc
+*1	4.094		15.90%		39.51%
+*2	1.655		55.96%		57.46%
+*3	0.724		83.10%		74.78%
+*4	0.542		89.32%		76.54%
+*5	0.499		90.86%		76.98%
+6	0.474		91.79%		76.96%
+*7	0.450		92.16%		77.30%
+8	0.425		92.83%		77.22%
+*9	0.411		93.44%		77.82%
+*10	0.389		94.18%		77.93%
+*11	0.375		94.54%		78.36%
+12	0.356		95.30%		77.98%
+13	0.346		95.60%		77.82%
+14	0.329		95.91%		78.24%
+*15	0.311		96.18%		78.51%
+16	0.293		97.01%		78.18%
+*17	0.284		97.06%		78.60%
+18	0.271		97.60%		78.27%
+19	0.256		97.80%		78.27%
+*20	0.250		97.86%		78.77%
+21	0.240		98.18%		78.51%
+22	0.223		98.38%		78.77%
+*23	0.215		98.48%		78.87%
+*24	0.206		98.58%		79.13%
+25	0.196		98.73%		78.79%
+26	0.194		98.92%		79.10%
+*27	0.182		99.07%		79.25%
+28	0.177		99.10%		79.00%
+29	0.170		99.23%		79.15%
+*30	0.161		99.32%		79.48%
+*31	0.156		99.27%		79.58%
+32	0.152		99.32%		79.12%
+33	0.145		99.52%		78.72%
+34	0.139		99.55%		79.48%
+35	0.131		99.68%		79.32%
+36	0.125		99.63%		79.55%
+*37	0.126		99.62%		79.74%
+38	0.119		99.77%		79.43%
+39	0.117		99.70%		79.44%
+40	0.112		99.73%		79.22%
+41	0.110		99.67%		79.58%
+42	0.106		99.72%		79.57%
+43	0.103		99.83%		79.46%
+44	0.100		99.83%		79.55%
+45	0.098		99.82%		79.67%
+46	0.095		99.80%		79.63%
+47	0.091		99.87%		79.46%
+48	0.089		99.85%		79.41%
+49	0.085		99.87%		79.60%
+50	0.086		99.88%		79.69%
+51	0.081		99.88%		79.53%
+*52	0.080		99.83%		79.77%
+53	0.077		99.88%		79.65%
+54	0.076		99.87%		79.77%
+55	0.075		99.90%		79.72%
+56	0.073		99.90%		79.62%
+57	0.069		99.97%		79.58%
+*58	0.069		99.92%		79.88%
+*59	0.070		99.88%		80.15%
+60	0.064		99.92%		79.98%
+61	0.065		99.95%		80.10%
+62	0.062		99.95%		80.07%
+63	0.061		99.92%		79.75%
+64	0.064		100.00%		79.58%
+65	0.062		99.92%		80.15%
+66	0.059		99.95%		80.05%
+67	0.058		99.95%		80.13%
+68	0.057		99.97%		79.81%
+69	0.061		99.93%		79.88%
+70	0.059		99.93%		79.93%
+71	0.060		99.93%		79.82%
+72	0.057		100.00%		79.57%
+73	0.056		99.97%		80.01%
+74	0.053		99.93%		80.10%
+75	0.054		99.93%		79.94%
+76	0.055		99.93%		80.03%
+*77	0.052		99.95%		80.17%
+78	0.051		99.95%		80.08%
+79	0.052		99.95%		80.01%
+*80	0.050		99.98%		80.43%
+81	0.048		100.00%		79.55%
+82	0.051		99.97%		80.24%
+83	0.050		99.95%		79.75%
+84	0.050		99.98%		80.17%
+85	0.049		99.97%		80.17%
+86	0.048		99.95%		79.89%
+87	0.051		99.95%		80.08%
+88	0.047		99.97%		80.08%
+89	0.048		99.95%		79.84%
+90	0.048		99.95%		80.17%
+91	0.048		99.85%		80.10%
+92	0.045		100.00%		79.88%
+93	0.046		99.95%		80.34%
+94	0.047		99.93%		80.17%
+95	0.045		99.98%		80.08%
+96	0.043		100.00%		80.20%
+97	0.043		99.95%		80.12%
+98	0.044		100.00%		80.22%
+99	0.044		99.95%		79.67%
+100	0.046		99.93%		80.39%
+101	0.045		99.93%		80.03%
+102	0.043		99.97%		79.98%
+103	0.044		99.97%		79.96%
+104	0.045		99.98%		80.13%
+105	0.042		99.93%		80.27%
+106	0.040		100.00%		80.07%
+107	0.042		99.98%		80.22%
+108	0.039		100.00%		80.19%
+109	0.040		99.98%		80.41%
+110	0.040		99.98%		80.24%
+111	0.040		99.93%		80.19%
+112	0.040		99.97%		80.15%
+113	0.041		99.98%		80.05%
+114	0.040		100.00%		80.03%
+115	0.040		99.98%		79.96%
+116	0.041		99.98%		79.93%
+117	0.042		99.95%		80.22%
+118	0.039		99.97%		80.12%
+119	0.039		99.95%		79.82%
+120	0.040		100.00%		80.31%
+Best at epoch 80, test accuaray 80.428032

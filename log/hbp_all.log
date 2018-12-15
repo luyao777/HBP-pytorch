@@ -1,0 +1,163 @@
+Prepare the network and data.
+DataParallel(
+  (module): BCNN(
+    (features): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+      (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): ReLU(inplace)
+      (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (6): ReLU(inplace)
+      (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (8): ReLU(inplace)
+      (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (11): ReLU(inplace)
+      (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (13): ReLU(inplace)
+      (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (15): ReLU(inplace)
+      (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (18): ReLU(inplace)
+      (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (20): ReLU(inplace)
+      (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (22): ReLU(inplace)
+      (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (25): ReLU(inplace)
+      (26): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (27): ReLU(inplace)
+      (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (29): ReLU(inplace)
+      (30): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (features_conv5_1): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+      (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): ReLU(inplace)
+      (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (6): ReLU(inplace)
+      (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (8): ReLU(inplace)
+      (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (11): ReLU(inplace)
+      (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (13): ReLU(inplace)
+      (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (15): ReLU(inplace)
+      (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (18): ReLU(inplace)
+      (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (20): ReLU(inplace)
+      (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (22): ReLU(inplace)
+      (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (25): ReLU(inplace)
+    )
+    (features_conv5_2): Sequential(
+      (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+    )
+    (features_conv5_3): Sequential(
+      (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+    )
+    (bilinear_proj): Sequential(
+      (0): Conv2d(512, 8192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): BatchNorm2d(8192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU(inplace)
+    )
+    (fc): Linear(in_features=24576, out_features=200, bias=True)
+  )
+)
+Files already downloaded and verified.
+Files already downloaded and verified.
+Training.
+Epoch	Train loss	Train acc	Test acc
+*1	0.942		76.66%		66.43%
+*2	0.653		84.25%		73.32%
+*3	0.346		93.41%		77.93%
+*4	0.186		97.46%		79.27%
+*5	0.130		98.65%		80.38%
+*6	0.077		99.55%		81.24%
+*7	0.057		99.88%		82.33%
+*8	0.047		99.87%		83.14%
+*9	0.043		99.87%		83.19%
+10	0.039		99.93%		82.76%
+*11	0.038		99.97%		83.48%
+12	0.041		99.88%		83.31%
+*13	0.037		99.97%		83.53%
+*14	0.037		99.98%		83.79%
+15	0.036		100.00%		83.59%
+16	0.036		100.00%		83.79%
+*17	0.039		99.98%		84.09%
+18	0.040		99.97%		84.02%
+19	0.039		100.00%		83.53%
+20	0.041		99.97%		83.64%
+*21	0.041		99.98%		84.29%
+22	0.046		99.95%		84.02%
+23	0.044		100.00%		83.53%
+24	0.047		99.98%		83.69%
+25	0.050		99.95%		83.95%
+26	0.053		100.00%		83.71%
+Epoch    26: reducing learning rate of group 0 to 1.0000e-03.
+27	0.054		99.97%		83.85%
+*28	0.048		99.95%		84.40%
+29	0.047		99.98%		84.24%
+30	0.046		100.00%		84.24%
+31	0.045		100.00%		84.38%
+32	0.046		100.00%		84.14%
+33	0.045		99.98%		84.35%
+Epoch    33: reducing learning rate of group 0 to 1.0000e-04.
+34	0.045		99.98%		84.23%
+35	0.045		100.00%		84.29%
+36	0.044		100.00%		84.35%
+*37	0.046		99.98%		84.41%
+38	0.045		100.00%		84.36%
+*39	0.046		100.00%		84.43%
+40	0.045		99.98%		84.26%
+*41	0.044		100.00%		84.48%
+42	0.046		99.98%		84.28%
+43	0.045		100.00%		84.29%
+44	0.045		100.00%		84.31%
+45	0.046		99.98%		84.36%
+46	0.046		99.98%		84.29%
+Epoch    46: reducing learning rate of group 0 to 1.0000e-05.
+47	0.045		99.98%		84.29%
+48	0.045		100.00%		84.35%
+49	0.046		100.00%		84.29%
+50	0.045		100.00%		84.29%
+51	0.046		100.00%		84.23%
+52	0.046		100.00%		84.28%
+Epoch    52: reducing learning rate of group 0 to 1.0000e-06.
+53	0.045		99.98%		84.38%
+54	0.045		100.00%		84.36%
+55	0.045		100.00%		84.35%
+56	0.045		100.00%		84.41%
+57	0.045		100.00%		84.24%
+58	0.044		100.00%		84.26%
+Epoch    58: reducing learning rate of group 0 to 1.0000e-07.
+59	0.045		100.00%		84.31%
+60	0.045		99.98%		84.38%
+61	0.044		100.00%		84.38%
+62	0.046		99.97%		84.28%
+63	0.045		99.98%		84.33%
+64	0.044		100.00%		84.21%
+Epoch    64: reducing learning rate of group 0 to 1.0000e-08.
+65	0.045		100.00%		84.26%
+66	0.045		99.97%		84.36%
+67	0.047		99.98%		84.40%
+68	0.045		99.97%		84.21%
+69	0.044		100.00%		84.31%
+70	0.046		99.97%		84.35%
+71	0.046		99.98%		84.36%
+72	0.044		100.00%		84.38%
+73	0.046		99.97%		84.36%
