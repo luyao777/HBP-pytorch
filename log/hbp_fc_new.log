@@ -1,0 +1,133 @@
+DataParallel(
+  (module): HBP(
+    (features): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+      (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): ReLU(inplace)
+      (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (6): ReLU(inplace)
+      (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (8): ReLU(inplace)
+      (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (11): ReLU(inplace)
+      (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (13): ReLU(inplace)
+      (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (15): ReLU(inplace)
+      (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (18): ReLU(inplace)
+      (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (20): ReLU(inplace)
+      (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (22): ReLU(inplace)
+      (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (25): ReLU(inplace)
+      (26): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (27): ReLU(inplace)
+      (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (29): ReLU(inplace)
+      (30): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (features_conv5_1): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+      (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): ReLU(inplace)
+      (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (6): ReLU(inplace)
+      (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (8): ReLU(inplace)
+      (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (11): ReLU(inplace)
+      (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (13): ReLU(inplace)
+      (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (15): ReLU(inplace)
+      (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (18): ReLU(inplace)
+      (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (20): ReLU(inplace)
+      (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (22): ReLU(inplace)
+      (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (25): ReLU(inplace)
+    )
+    (features_conv5_2): Sequential(
+      (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+    )
+    (features_conv5_3): Sequential(
+      (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): ReLU(inplace)
+    )
+    (bilinear_proj_1): Conv2d(512, 8192, kernel_size=(1, 1), stride=(1, 1))
+    (bilinear_proj_2): Conv2d(512, 8192, kernel_size=(1, 1), stride=(1, 1))
+    (bilinear_proj_3): Conv2d(512, 8192, kernel_size=(1, 1), stride=(1, 1))
+    (fc): Linear(in_features=24576, out_features=200, bias=True)
+  )
+)
+Files already downloaded and verified.
+Files already downloaded and verified.
+Compute mean and variance for training data.
+Files already downloaded and verified.
+tensor([0.4856, 0.4994, 0.4324])
+tensor([0.1817, 0.1811, 0.1927])
+Training.
+Epoch	Train loss	Train acc	Test acc
+*1	4.912		13.66%		39.02%
+*2	3.484		47.75%		54.33%
+*3	2.454		64.88%		64.38%
+*4	1.844		75.04%		69.88%
+*5	1.456		80.26%		72.42%
+*6	1.200		84.67%		74.47%
+*7	1.002		87.10%		75.77%
+*8	0.867		89.36%		77.06%
+*9	0.751		91.02%		77.58%
+*10	0.665		92.39%		78.13%
+11	0.589		93.88%		78.06%
+*12	0.522		94.53%		78.44%
+*13	0.439		96.13%		78.86%
+*14	0.411		96.46%		79.13%
+*15	0.396		96.58%		79.22%
+16	0.389		96.61%		79.19%
+*17	0.378		96.66%		79.48%
+18	0.375		96.93%		79.41%
+*19	0.366		97.08%		79.72%
+20	0.358		97.23%		79.55%
+21	0.354		97.28%		79.58%
+22	0.348		97.45%		79.69%
+23	0.341		97.38%		79.60%
+24	0.335		97.63%		79.62%
+25	0.334		97.61%		79.70%
+26	0.332		97.55%		79.70%
+*27	0.329		97.70%		79.74%
+28	0.331		97.65%		79.70%
+29	0.334		97.56%		79.72%
+30	0.329		97.75%		79.74%
+31	0.331		97.48%		79.74%
+*32	0.327		97.68%		79.75%
+*33	0.327		97.81%		79.79%
+34	0.328		97.48%		79.77%
+35	0.324		97.75%		79.77%
+36	0.324		97.81%		79.77%
+37	0.327		97.60%		79.79%
+38	0.326		97.63%		79.79%
+39	0.324		97.80%		79.79%
+40	0.327		97.63%		79.75%
+41	0.325		97.85%		79.77%
+42	0.326		97.58%		79.79%
+43	0.324		97.53%		79.75%
+44	0.327		97.46%		79.75%
+45	0.327		97.76%		79.77%
+46	0.327		97.70%		79.77%
+47	0.325		97.76%		79.77%
+48	0.327		97.65%		79.77%
