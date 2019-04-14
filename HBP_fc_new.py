@@ -187,7 +187,7 @@ class HBPManager(object):
                 ii += 1
                 x = torch.Tensor([ii])
                 y = torch.Tensor([loss.data[0]])
-                vis.line(X=x, Y=y, win='polynomial', update='append' if ii>0 else None)
+                vis.line(X=x, Y=y, win='polynomial', update='append' if ii > 0 else None)
 
             num_correct = torch.tensor(num_correct).float().cuda()
             num_total = torch.tensor(num_total).float().cuda()
