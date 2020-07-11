@@ -90,7 +90,7 @@ class HBP(torch.nn.Module):
         return X
 
 class HBPManager(object):
-    def __init__(self, optins, path):
+    def __init__(self, options, path):
         self._options = options
         self._path = path
         # Network.
